@@ -51,7 +51,7 @@ export function getEventDisplayName(item: EventLike, t?: TranslationFunction): s
     if (!values) return translated;
 
     return Object.entries(values).reduce(
-      (result, [placeholder, value]) => result.replaceAll(`{${placeholder}}`, value),
+      (result, [placeholder, value]) => result.replaceAll(`{${placeholder}}`, () => value),
       translated
     );
   };
